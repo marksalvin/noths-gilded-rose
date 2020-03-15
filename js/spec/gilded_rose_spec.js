@@ -158,18 +158,30 @@ describe('Gilded Rose', function() {
     expect(result).toEqual(0);
   });
 
-  /*it('"Conjured" items degrade in quality twice as fast as normal items', () => {
+  it('"Conjured" items degrade in quality twice as fast as normal items', () => {
     const target = update_quality;
 
-    items = [
-      new Item('Conjured', 1, 5),
+    const testCases = [
+      {
+        sell_in: 5,
+        expectedQuality: 3,
+      },
+      {
+        sell_in: 0,
+        expectedQuality: 1,
+      },
     ];
 
-    target();
+    testCases.forEach(testCase => {
+      items = [
+        new Item('Conjured fake item', testCase.sell_in, 5),
+      ];
 
-    const result = items[0].quality;
+      target();
 
-    expect(result).toEqual(3);
-  });*/
+      const result = items[0].quality;
 
+      expect(result).toEqual(testCase.expectedQuality);
+    });
+  });
 });

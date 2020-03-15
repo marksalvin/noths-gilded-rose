@@ -43,4 +43,4 @@ Backstage passes to a TAFKAL80ETC concert, 9, 50
 
 Backstage passes to a TAFKAL80ETC concert, 4, 50
 
-Conjured Mana Cake, 2, 5
+Conjured Mana Cake, 2, 4

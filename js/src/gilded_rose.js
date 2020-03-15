@@ -49,6 +49,16 @@ const updateBackstagePass = (item) => {
   };
 };
 
+const updateConjuredItem = (item) => {
+  const updatedQuality = item.sell_in <= 0 ? item.quality - 4 : item.quality - 2;
+
+  return {
+    ...item,
+    quality: updatedQuality >= 0 ? updatedQuality : 0,
+    sell_in: item.sell_in - 1,
+  };
+};
+
 const updateStandardItem = (item) => {
   const updatedQuality = item.sell_in <= 0 ? item.quality - 2 : item.quality - 1;
 
@@ -75,6 +85,11 @@ const update_quality = () => {
 
     if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
       return updateBackstagePass(item);
+    }
+
+    const isConjuredItem = item.name.length > 8 && item.name.substring(0, 8) === 'Conjured';
+    if (isConjuredItem) {
+      return updateConjuredItem(item);
     }
 
     return updateStandardItem(item);
