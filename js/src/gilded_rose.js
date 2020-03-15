@@ -12,6 +12,11 @@ const updateAgedBrie = (item) => ({
   sell_in: item.sell_in - 1,
 });
 
+const updateSulfuras = (item) => ({
+  ...item,
+  quality: 80,
+});
+
 const updateBackstagePass = (item) => {
   if (item.sell_in > 10) {
     return {
@@ -65,7 +70,7 @@ const update_quality = () => {
     }
 
     if (item.name === 'Sulfuras, Hand of Ragnaros') {
-      return item;
+      return updateSulfuras(item);
     }
 
     if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {

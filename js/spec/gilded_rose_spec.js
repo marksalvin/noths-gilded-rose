@@ -91,7 +91,7 @@ describe('Gilded Rose', function() {
 
     const result = items[0].quality;
 
-    expect(result).toEqual(40);
+    expect(result).toEqual(80);
   });
 
   it('"Backstage passes" increases in Quality when there are more than 10 days of sellIn', () => {
